@@ -3,8 +3,8 @@
     <h1>logo</h1>
     <div class="nav">
       <ul>
-        <li>
-          <router-link></router-link>
+        <li v-for="(item, i) in navList" :key="i">
+          <router-link :to="{ path: item.path }">{{ item.name }}</router-link>
         </li>
       </ul>
     </div>
@@ -17,8 +17,31 @@ export default {
   components: {},
   data () {
     return {
-      navList: [
-
+    }
+  },
+  computed: {
+    navList () {
+      return [
+        {
+          name: this.$t('home.home'),
+          path: '/'
+        },
+        {
+          name: this.$t('home.products'),
+          path: '/products'
+        },
+        {
+          name: this.$t('home.videos'),
+          path: '/videos'
+        },
+        {
+          name: this.$t('home.news'),
+          path: '/news'
+        },
+        {
+          name: this.$t('home.contact'),
+          path: '/contact'
+        },
       ]
     }
   },
