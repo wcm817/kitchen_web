@@ -7,5 +7,17 @@ module.exports = {
         prependData: `@import "@/style/variable.scss";`
       }
     }
+  },
+  devServer: {
+    host: 'localhost',
+    proxy: {
+      '/': {
+        ws: false,
+        target: 'http://127.0.0.1:8899',
+        changeOrigin: true,
+        pathWrite: {
+        }
+      }
+    }
   }
 }

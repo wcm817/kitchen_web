@@ -1,0 +1,9 @@
+export default {
+  home: {
+    home: '首页',
+    products: '产品',
+    videos: '视频',
+    news: '新闻',
+    contact: '联系我们'
+  }
+}

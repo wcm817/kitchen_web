@@ -6,6 +6,5 @@
 
 <style lang="scss">
 body {
-  background-color: $main_color;
 }
 </style>
