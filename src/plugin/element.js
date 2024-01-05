@@ -7,6 +7,7 @@ import {
   CheckboxGroup,
   Select,
   Option,
+  Drawer,
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(Dialog);
@@ -16,3 +17,4 @@ Vue.use(Checkbox);
 Vue.use(CheckboxGroup);
 Vue.use(Select);
 Vue.use(Option);
+Vue.use(Drawer);

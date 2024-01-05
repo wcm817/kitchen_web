@@ -1,0 +1,24 @@
+$main-color: #409eff;
+$main-a-color: rgba(64, 160, 255, 0.4);
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin scrollBar($bgColor: #D8D8D8, $width: 10px) {
+  &::-webkit-scrollbar {
+    width: $width;
+    background: #fff;
+    border-radius: 5px;
+  }
+
+  /* 滚动条滑块 */
+  &::-webkit-scrollbar-thumb {
+    width: $width;
+    height: 10px;
+    border-radius: 5px;
+    background: $bgColor;
+  }
+}

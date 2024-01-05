@@ -10,17 +10,17 @@ export const initRootFontSize = () => {
   init();
 }
 
-export const handleFontSize = () => {
-  WeixinJSBridge.invoke('setFontSizeCallback', { fontSize: 0 })
-  WeixinJSBridge.on('menu:setfont', () => {
-    WeixinJSBridge.invoke('setFontSizeCallback', { fontSize: 0 })
-  })
-}
-if (
-  typeof WeixinJSBridge === 'object'
-  && typeof WeixinJSBridge.invoke === 'function'
-) {
-  handleFontSize()
-} else {
-  document.addEventListener('WeixinJSBridgeReady', handleFontSize, false)
-}
+// export const handleFontSize = () => {
+//   WeixinJSBridge.invoke('setFontSizeCallback', { fontSize: 0 })
+//   WeixinJSBridge.on('menu:setfont', () => {
+//     WeixinJSBridge.invoke('setFontSizeCallback', { fontSize: 0 })
+//   })
+// }
+// if (
+//   typeof WeixinJSBridge === 'object'
+//   && typeof WeixinJSBridge.invoke === 'function'
+// ) {
+//   handleFontSize()
+// } else {
+//   document.addEventListener('WeixinJSBridgeReady', handleFontSize, false)
+// }
