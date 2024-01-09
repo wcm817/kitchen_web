@@ -3,7 +3,7 @@ name: kitchen
 on:
   push:
     branches:
-      - fat
+      - main
  
 jobs:
   build-and-deploy:
