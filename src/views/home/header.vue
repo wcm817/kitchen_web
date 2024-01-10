@@ -34,6 +34,7 @@
       <span class="iconfont el-icon-s-unfold" @click="showDrawer = true"></span>
       <mobile-drawer
         :show-drawer="showDrawer"
+        :nav-list="navList"
         @handleClose="showDrawer = false"
       ></mobile-drawer>
     </div>
@@ -129,7 +130,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 0.64rem;
   }
   .nav {
     display: flex;
@@ -220,7 +221,7 @@ export default {
     display: flex;
     align-items: center;
     .iconfont {
-      font-size: 0.53rem;
+      font-size: 0.64rem;
     }
   }
 }
