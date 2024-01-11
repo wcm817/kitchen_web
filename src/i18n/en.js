@@ -4,6 +4,7 @@ export default {
     products: 'Products',
     videos: 'Videos',
     news: 'News',
-    contact: 'Contact Us'
+    contact: 'Contact Us',
+    changeLang: 'Language'
   }
 }

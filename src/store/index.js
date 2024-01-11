@@ -15,7 +15,6 @@ export default new Vuex.Store({
       state.lang = string;
     },
     setIsMobile (state, flag) {
-      console.log('flag:::', flag);
       state.isMobile = flag;
     }
   },

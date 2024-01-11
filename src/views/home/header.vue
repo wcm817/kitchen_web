@@ -35,7 +35,9 @@
       <mobile-drawer
         :show-drawer="showDrawer"
         :nav-list="navList"
+        :lang-label="langLabel"
         @handleClose="showDrawer = false"
+        @hanldeChangeLang="hanlderChangeLang"
       ></mobile-drawer>
     </div>
   </div>
@@ -80,7 +82,7 @@ export default {
         {
           routeName: 'products',
           name: this.$t('home.products'),
-          path: '/products'
+          path: '/products',
         },
         {
           routeName: 'videos',
@@ -195,21 +197,20 @@ export default {
         top: 27px;
         left: 0;
         width: 100%;
-        background-color: $main-a-color;
+        background-color: $main-color-1;
         padding: 4px 0;
         .lang-item {
           padding: 4px 10px;
           text-align: center;
           cursor: pointer;
-          color: #666;
+          color: #fff;
           &:hover {
             background-color: $main-color;
-            color: #fff;
           }
         }
       }
       &:hover {
-        border-color: $main-a-color;
+        border-color: $main-color-1;
         .lang-list {
           display: block;
         }
