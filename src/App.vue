@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <dc-header></dc-header>
-    <router-view />
+    <div class="app-content">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -24,4 +26,7 @@ export default {
 }
 </script>
 <style lang="scss">
+.app-content {
+  padding-top: 1.33rem;
+}
 </style>

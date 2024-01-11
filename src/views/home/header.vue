@@ -122,8 +122,14 @@ export default {
 
 <style lang="scss" scoped>
 .header {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100vw;
   padding: 0 5vw;
   height: 1.33rem;
+  box-sizing: border-box;
   font-size: 14px;
   display: flex;
   justify-content: space-between;
@@ -210,7 +216,7 @@ export default {
         }
       }
       &:hover {
-        border-color: $main-color-1;
+        border-color: $main-color;
         .lang-list {
           display: block;
         }
