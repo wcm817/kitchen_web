@@ -1,6 +1,11 @@
-$main-color: #409eff;
-// $main-a-color: rgba(64, 160, 255, 0.4);
-$main-color-1: #3f73a6;
+$main-color: #3f73a6;
+$main-color-1: #409eff;
+$main-color-2: rgba(64, 160, 255, 0.4);
+
+// 结构间距
+$pd-s: .43rem;
+$pd-m: .53rem;
+$pd-l: .64rem;
 
 @mixin ellipsis {
   overflow: hidden;

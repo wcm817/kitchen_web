@@ -5,6 +5,7 @@ export default {
     videos: '视频',
     news: '新闻',
     contact: '联系我们',
-    changeLang: '语言切换'
+    changeLang: '语言切换',
+    productType: '产品系列',
   }
 }

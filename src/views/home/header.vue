@@ -13,7 +13,7 @@
         </li>
       </ul>
       <div class="tel">
-        <span class="iconfont el-icon-phone"></span>
+        <span class="iconfont icon-phone"></span>
         <span>157xxxx0000</span>
       </div>
       <div class="lang-box">
@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="mobile-nav" v-else>
-      <span class="iconfont el-icon-s-unfold" @click="showDrawer = true"></span>
+      <span class="iconfont icon-menu" @click="showDrawer = true"></span>
       <mobile-drawer
         :show-drawer="showDrawer"
         :nav-list="navList"
@@ -122,17 +122,19 @@ export default {
 
 <style lang="scss" scoped>
 .header {
+  width: 100%;
   position: fixed;
   z-index: 999;
   left: 0;
   top: 0;
-  width: 100vw;
   padding: 0 5vw;
   height: 1.33rem;
   box-sizing: border-box;
   font-size: 14px;
   display: flex;
   justify-content: space-between;
+  background-color: #fff;
+  box-shadow: 0 0 0.27rem 0.13rem #eee;
   h1 {
     height: 1.33rem;
     display: flex;
@@ -203,7 +205,7 @@ export default {
         top: 27px;
         left: 0;
         width: 100%;
-        background-color: $main-color-1;
+        background-color: $main-color;
         padding: 4px 0;
         .lang-item {
           padding: 4px 10px;
@@ -211,7 +213,7 @@ export default {
           cursor: pointer;
           color: #fff;
           &:hover {
-            background-color: $main-color;
+            background-color: $main-color-1;
           }
         }
       }

@@ -2,8 +2,7 @@
 export const initRootFontSize = () => {
   let init = () => {
     let w = document.documentElement.offsetWidth || window.innerWidth;
-    if (w >= 375)
-      document.documentElement.style.fontSize = "37.5px";
+    document.documentElement.style.fontSize = w >= 750 ? "37.5px" : w / 10 + 'px';
   }
   window.addEventListener('resize', init);
   window.addEventListener('load', init);

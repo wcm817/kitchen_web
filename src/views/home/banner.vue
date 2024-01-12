@@ -1,6 +1,6 @@
 <template>
   <div class="banner">
-    <el-carousel :interval="10000" height="300px">
+    <el-carousel :interval="6000" height="300px">
       <el-carousel-item v-for="item in 3" :key="item">
         <h3 class="medium">{{ item }}</h3>
       </el-carousel-item>
@@ -35,7 +35,7 @@ export default {
 }
 
 .el-carousel__item:nth-child(2n) {
-  background-color: $main-color-1;
+  background-color: $main-color;
 }
 
 .el-carousel__item:nth-child(2n + 1) {
@@ -53,7 +53,7 @@ export default {
   }
 }
 .banner {
-  margin-top: 24px;
+  margin-top: $pd-m;
   padding: 0 5%;
 }
 </style>

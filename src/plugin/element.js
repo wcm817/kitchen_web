@@ -10,8 +10,11 @@ import {
   Drawer,
   Carousel,
   CarouselItem,
+  Row,
+  Col
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import 'element-ui/lib/theme-chalk/display.css';
 Vue.use(Dialog);
 Vue.use(Input);
 Vue.use(Button);
@@ -22,3 +25,5 @@ Vue.use(Option);
 Vue.use(Drawer);
 Vue.use(Carousel);
 Vue.use(CarouselItem);
+Vue.use(Row);
+Vue.use(Col);

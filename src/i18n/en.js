@@ -5,6 +5,7 @@ export default {
     videos: 'Videos',
     news: 'News',
     contact: 'Contact Us',
-    changeLang: 'Language'
+    changeLang: 'Language',
+    productType: 'Product Line',
   }
 }
