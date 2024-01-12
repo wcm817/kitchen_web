@@ -146,11 +146,13 @@ export default {
         this.catagoryListCopy = this.isMobile ? list.slice(0, 4) : list;
       },
       deep: true,
-      immediate: true
     }
   },
   created () { },
-  mounted () { },
+  mounted () {
+    const list = JSON.parse(JSON.stringify(this.catagoryList));
+    this.catagoryListCopy = this.isMobile ? list.slice(0, 4) : list;
+  },
   methods: {
     handleShowMorePro () {
       const list = JSON.parse(JSON.stringify(this.catagoryList));
