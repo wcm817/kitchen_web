@@ -1,0 +1,86 @@
+{
+  "id": "4399917",
+  "name": "kitchen_web",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "厨具网",
+  "glyphs": [
+    {
+      "icon_id": "848747",
+      "name": "more",
+      "font_class": "more",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "10368272",
+      "name": "restaurant",
+      "font_class": "restaurant",
+      "unicode": "e6b6",
+      "unicode_decimal": 59062
+    },
+    {
+      "icon_id": "29951906",
+      "name": "uniE768",
+      "font_class": "uniE768",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "1176933",
+      "name": "menu",
+      "font_class": "menu",
+      "unicode": "e704",
+      "unicode_decimal": 59140
+    },
+    {
+      "icon_id": "5211226",
+      "name": "04烘焙工具",
+      "font_class": "hongbeigongju",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "6803636",
+      "name": "Restaurant",
+      "font_class": "Restaurant",
+      "unicode": "e7f4",
+      "unicode_decimal": 59380
+    },
+    {
+      "icon_id": "8560790",
+      "name": "032-coffee-maker",
+      "font_class": "-coffee-maker",
+      "unicode": "e6b5",
+      "unicode_decimal": 59061
+    },
+    {
+      "icon_id": "10408916",
+      "name": "洗碗机",
+      "font_class": "xiwanji-xian",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "12002481",
+      "name": "kitchen, cabinet, interior",
+      "font_class": "kitchencabinetinterior",
+      "unicode": "ea35",
+      "unicode_decimal": 59957
+    },
+    {
+      "icon_id": "12770896",
+      "name": "垃圾桶",
+      "font_class": "lajitong",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "1080340",
+      "name": "phone",
+      "font_class": "phone",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    }
+  ]
+}

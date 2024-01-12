@@ -35,7 +35,7 @@ export default {
 }
 
 .el-carousel__item:nth-child(2n) {
-  background-color: $main-color-1;
+  background-color: $main-color;
 }
 
 .el-carousel__item:nth-child(2n + 1) {

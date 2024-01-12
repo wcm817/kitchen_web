@@ -1,63 +1,253 @@
 <template>
   <div class="product w">
-    <div class="title">{{ $t('home.starProduct') }}</div>
-    <div class="content">
-      <el-row :gutter="10">
-        <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"
-          ><div class="grid-content bg-purple"></div
-        ></el-col>
-        <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"
-          ><div class="grid-content bg-purple-light"></div
-        ></el-col>
-        <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"
-          ><div class="grid-content bg-purple"></div
-        ></el-col>
-        <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"
-          ><div class="grid-content bg-purple-light"></div
-        ></el-col>
+    <div class="title">
+      {{ $t('home.productType') }}
+    </div>
+    <div class="catogary">
+      <el-row>
+        <el-col
+          :xs="12"
+          :sm="12"
+          :md="6"
+          v-for="(item, i) in catagoryListCopy"
+          :key="i"
+        >
+          <div class="grid-content">
+            <div class="icon">
+              <span :class="`iconfont ${item.iconName}`"></span>
+            </div>
+            <div class="title">{{ item.name }}</div>
+            <div class="info">{{ item.info }}</div>
+            <div class="product-list">
+              <div
+                class="item"
+                v-for="(subItem, subI) in item.products"
+                :key="`${i}${subI}`"
+              >
+                <router-link to="/">{{ subItem.name }}</router-link>
+              </div>
+            </div>
+          </div>
+        </el-col>
       </el-row>
+      <div class="more hidden-md-and-up">
+        <span
+          :class="`iconfont icon-more ${
+            catagoryListCopy.length > 4 ? 'up' : 'down'
+          }`"
+          @click="handleShowMorePro"
+        ></span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
   name: 'Product',
   components: {},
   data () {
-    return {};
+    return {
+      catagoryListCopy: [],
+    };
+  },
+  computed: {
+    ...mapState(['isMobile']),
+    catagoryList () {
+      return [
+        {
+          name: 'Restautant Equipment',
+          iconName: 'icon-kitchencabinetinterior',
+          info: 'Shop everything from ice makers to ovens.',
+          products: [
+            { name: 'Commerccial REfrigertors', path: '/' },
+            { name: 'Commerccial REfrigertors', path: '/' },
+            { name: 'Commerccial REfrigertors', path: '/' },
+            { name: 'Commerccial REfrigertors', path: '/' },
+          ]
+        },
+        {
+          name: 'Restautant Equipment',
+          iconName: 'icon-hongbeigongju',
+          info: 'Shop everything from ice makers to ovens.',
+          products: [
+            { name: 'Commerccial REfrigertors', path: '/' },
+            { name: 'Commerccial REfrigertors', path: '/' }
+          ]
+        },
+        {
+          name: 'Restautant Equipment',
+          iconName: 'icon--coffee-maker',
+          info: 'Shop everything from ice makers to ovens.',
+          products: [
+            { name: 'Commerccial REfrigertors', path: '/' },
+            { name: 'Commerccial REfrigertors', path: '/' },
+            { name: 'Commerccial REfrigertors', path: '/' }
+          ]
+        },
+        {
+          name: 'Restautant Equipment',
+          iconName: 'icon-restaurant',
+          info: 'Shop everything from ice makers to ovens.',
+          products: [
+            { name: 'Commerccial REfrigertors', path: '/' },
+            { name: 'Commerccial REfrigertors', path: '/' },
+            { name: 'Commerccial REfrigertors', path: '/' }
+          ]
+        },
+        {
+          name: 'Restautant Equipment',
+          iconName: 'icon-uniE768',
+          info: 'Shop everything from ice makers to ovens.',
+          products: [
+            { name: 'Commerccial REfrigertors', path: '/' },
+            { name: 'Commerccial REfrigertors', path: '/' },
+            { name: 'Commerccial REfrigertors', path: '/' }
+          ]
+        },
+        {
+          name: 'Restautant Equipment',
+          iconName: 'icon-xiwanji-xian',
+          info: 'Shop everything from ice makers to ovens.',
+          products: [
+            { name: 'Commerccial REfrigertors', path: '/' },
+            { name: 'Commerccial REfrigertors', path: '/' },
+            { name: 'Commerccial REfrigertors', path: '/' }
+          ]
+        },
+        {
+          name: 'Restautant Equipment',
+          iconName: 'icon-Restaurant',
+          info: 'Shop everything from ice makers to ovens.',
+          products: [
+            { name: 'Commerccial REfrigertors', path: '/' },
+            { name: 'Commerccial REfrigertors', path: '/' },
+            { name: 'Commerccial REfrigertors', path: '/' }
+          ]
+        },
+        {
+          name: 'Restautant Equipment',
+          iconName: 'icon-lajitong',
+          info: 'Shop everything from ice makers to ovens.',
+          products: [
+            { name: 'Commerccial REfrigertors', path: '/' },
+            { name: 'Commerccial REfrigertors', path: '/' },
+            { name: 'Commerccial REfrigertors', path: '/' }
+          ]
+        }
+      ]
+    },
+  },
+  watch: {
+    catagoryList: {
+      handler (val) {
+        const list = JSON.parse(JSON.stringify(val));
+        this.catagoryListCopy = this.isMobile ? list.slice(0, 4) : list;
+      },
+      deep: true,
+      immediate: true
+    }
   },
   created () { },
   mounted () { },
-  methods: {}
+  methods: {
+    handleShowMorePro () {
+      const list = JSON.parse(JSON.stringify(this.catagoryList));
+      this.catagoryListCopy = this.catagoryListCopy.length > 4 ? list.slice(0, 4) : list;
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-.el-col {
-  border-radius: 4px;
-}
-.bg-purple-dark {
-  background: #99a9bf;
-}
-.bg-purple {
-  background: #d3dce6;
-}
-.bg-purple-light {
-  background: #e5e9f2;
-}
-.grid-content {
-  border-radius: 4px;
-  min-height: 36px;
-}
-
 .product {
   padding-top: $pd-l;
-  .title {
+  > .title {
     height: 1.6rem;
     text-align: center;
     font-size: 0.53rem;
     font-weight: 600;
+  }
+  .catogary {
+    .el-col {
+      margin-bottom: 0.27rem;
+      padding: 0 0.13rem;
+      .grid-content {
+        display: flex;
+        padding: 0.27rem;
+        height: 5.87rem;
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        &:hover {
+          border-color: $main-color-1;
+          .title {
+            color: $main-color-1;
+          }
+          .icon {
+            border-color: $main-color-1;
+          }
+        }
+        .icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 1.6rem;
+          height: 1.6rem;
+          border: 2px solid $main-color;
+          border-radius: 50%;
+          margin-bottom: 0.27rem;
+          .iconfont {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #666;
+          }
+        }
+        .title {
+          font-size: 0.37rem;
+          font-weight: 600;
+          padding-bottom: 0.37rem;
+        }
+        .info {
+          width: 100%;
+          font-size: 0.32rem;
+          color: #666;
+          @include ellipsis;
+        }
+        .product-list {
+          width: 100%;
+          .item {
+            padding-top: 0.16rem;
+            font-size: 0.32rem;
+            a {
+              color: $main-color;
+            }
+          }
+        }
+      }
+    }
+    .more {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 0.27rem;
+      .iconfont {
+        display: inline-block;
+        cursor: pointer;
+        color: #999;
+        &.down {
+          transform: rotate(90deg);
+        }
+        &.up {
+          transform: rotate(-90deg);
+        }
+        &:hover {
+          color: $main-color;
+        }
+      }
+    }
   }
 }
 </style>

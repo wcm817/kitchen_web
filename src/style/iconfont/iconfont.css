@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4399917 */
+  src: url('iconfont.woff2?t=1705044746074') format('woff2'),
+       url('iconfont.woff?t=1705044746074') format('woff'),
+       url('iconfont.ttf?t=1705044746074') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-more:before {
+  content: "\e656";
+}
+
+.icon-restaurant:before {
+  content: "\e6b6";
+}
+
+.icon-uniE768:before {
+  content: "\e603";
+}
+
+.icon-menu:before {
+  content: "\e704";
+}
+
+.icon-hongbeigongju:before {
+  content: "\e610";
+}
+
+.icon-Restaurant:before {
+  content: "\e7f4";
+}
+
+.icon--coffee-maker:before {
+  content: "\e6b5";
+}
+
+.icon-xiwanji-xian:before {
+  content: "\e640";
+}
+
+.icon-kitchencabinetinterior:before {
+  content: "\ea35";
+}
+
+.icon-lajitong:before {
+  content: "\e606";
+}
+
+.icon-phone:before {
+  content: "\e611";
+}
+

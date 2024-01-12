@@ -6,6 +6,6 @@ export default {
     news: 'News',
     contact: 'Contact Us',
     changeLang: 'Language',
-    starProduct: 'Star Products',
+    productType: 'Product Line',
   }
 }
