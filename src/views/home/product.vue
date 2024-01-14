@@ -1,8 +1,6 @@
 <template>
   <div class="product w">
-    <div class="title">
-      {{ $t('home.productType') }}
-    </div>
+    <block-title :title="$t('home.hotProduct')"></block-title>
     <div class="catogary">
       <el-row>
         <el-col
@@ -43,10 +41,13 @@
 </template>
 
 <script>
+import BlockTitle from '@/components/blockTitle.vue';
 import { mapState } from 'vuex';
 export default {
   name: 'Product',
-  components: {},
+  components: {
+    BlockTitle,
+  },
   data () {
     return {
       catagoryListCopy: [],
@@ -164,17 +165,11 @@ export default {
 
 <style lang="scss" scoped>
 .product {
-  padding-top: $pd-l;
-  > .title {
-    height: 1.6rem;
-    text-align: center;
-    font-size: 0.53rem;
-    font-weight: 600;
-  }
+  padding: 0 0.267rem;
   .catogary {
     .el-col {
       margin-bottom: 0.27rem;
-      padding: 0 0.13rem;
+      padding: 0 0.213rem;
       .grid-content {
         display: flex;
         padding: 0.27rem;
@@ -212,6 +207,7 @@ export default {
           font-size: 0.37rem;
           font-weight: 600;
           padding-bottom: 0.37rem;
+          @include ellipsis;
         }
         .info {
           width: 100%;
