@@ -6,6 +6,7 @@ export default {
     news: '新闻',
     contact: '联系我们',
     changeLang: '语言切换',
-    productType: '产品系列',
+    hotProduct: '热卖产品',
+    aboutUs: '关于我们'
   }
 }
