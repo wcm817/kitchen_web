@@ -7,9 +7,7 @@
       </el-col>
       <el-col :xs="24" :sm="12" class="video-infos">
         <div class="title">
-          <router-link to="/about"
-            >GUANGZHOU HONGLING ELECTRIC HEATING EQUIPMENT CO.,LTD.</router-link
-          >
+          <router-link to="/about">GUANGZHOU HONGLING ELECTRIC HEATING EQUIPMENT CO.,LTD.</router-link>
         </div>
         <div class="p">
           Guangzhou Hongling Electric Heating Equipment Co., Ltd.
@@ -28,26 +26,40 @@
           </div>
         </div>
         <div class="video-section">
-          <el-carousel trigger="click">
+          <div class="slider-box" :style="{ width: sliderBoxWidth + 'px'}">
+            <div class="item-content" v-for="(item, i) in list" :key="i" :style="{ width: videoItemWidth + 'px'}"
+              @click="$router.push({ path: item.path })">
+              <div class="img-box">
+                <img :src="item.imgSrc" alt="" />
+                <span></span>
+              </div>
+              <h4>{{ item.title }}</h4>
+            </div>
+          </div>
+          <!-- <el-carousel trigger="click">
             <el-carousel-item
               v-for="(item, I) in videoList"
               :key="I"
               class="carousel-item"
             >
-              <div
-                class="item-content"
-                v-for="(subItem, subI) in item"
-                :key="`${I}${subI}`"
-                @click="$router.push({ path: subItem.path })"
-              >
+              <el-row>
+                <el-col
+                  :xs="24"
+                  :sm="12"
+                  class="item-content"
+                  v-for="(subItem, subI) in item"
+                  :key="`${I}${subI}`"
+                  @click="$router.push({ path: subItem.path })"
+                >
                 <div class="img-box">
                   <img :src="subItem.imgSrc" alt="" />
                   <span></span>
                 </div>
                 <h4>{{ subItem.title }}</h4>
-              </div>
+              </el-col>
+              </el-row>
             </el-carousel-item>
-          </el-carousel>
+          </el-carousel> -->
         </div>
       </el-col>
     </el-row>
@@ -59,7 +71,7 @@ export default {
   components: {
     BlockTitle,
   },
-  data () {
+  data() {
     return {
       list: [
         {
@@ -97,23 +109,37 @@ export default {
           path: '/',
           title: '777-Hot Sale Baking Equipment Pizza Electric Deck Oven'
         }
-      ]
+      ],
+      videoSectionWidth: 0
     };
   },
   computed: {
-    videoList () {
+    videoList() {
       const res = [];
       for (let i = 0; i < this.list.length; i += 2) {
         res.push(this.list.slice(i, i + 2));
       }
       return res;
+    },
+    videoItemWidth(){
+      return this.videoSectionWidth / 2;
+    },
+    sliderBoxWidth(){
+      return this.videoItemWidth * this.list.length
     }
+  },
+  mounted(){
+    this.$nextTick(() => {
+      const dom = document.querySelector('.video-section');
+      this.videoSectionWidth = dom.offsetWidth;
+    })
   }
 };
 </script>
 <style lang="scss" scoped>
 .about {
   padding: 0 0.267rem;
+
   .content {
     .left-img {
       width: 100%;
@@ -138,54 +164,57 @@ export default {
         max-height: 5.333rem;
         margin-bottom: 0.267rem;
         overflow: hidden;
-        > div {
+
+        >div {
           text-indent: 2em;
         }
       }
-      /deep/.el-carousel__container {
-        height: 5.87rem;
-      }
 
-      .carousel-item {
-        display: flex;
+      // /deep/.el-carousel__container {
+      //   height: 5.87rem;
+      // }
 
-        .item-content {
-          width: 50%;
-          box-sizing: border-box;
-          padding: 0 0.213rem;
-          .img-box {
-            position: relative;
-            img {
-              width: 100%;
+      .item-content {
+        // width: 50%;
+        box-sizing: border-box;
+        padding: 0 0.213rem;
+
+        .img-box {
+          position: relative;
+
+          img {
+            width: 100%;
+            display: block;
+          }
+
+          span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 1.07rem;
+            height: 1.07rem;
+            background-color: $main-color;
+            border-radius: 50%;
+
+            &::after {
               display: block;
-            }
-            span {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              position: absolute;
-              left: 50%;
-              top: 50%;
-              transform: translate(-50%, -50%);
-              width: 1.07rem;
-              height: 1.07rem;
-              background-color: $main-color;
-              border-radius: 50%;
-              &::after {
-                display: block;
-                content: '';
-                border: 0.16rem solid transparent;
-                border-left: 0.21rem solid #fff;
-                margin-left: 0.21rem;
-              }
+              content: '';
+              border: 0.16rem solid transparent;
+              border-left: 0.21rem solid #fff;
+              margin-left: 0.21rem;
             }
           }
-          h4 {
-            cursor: pointer;
-            margin: 0.27rem 0;
-            font-size: 0.37rem;
-            font-weight: 600;
-          }
+        }
+
+        h4 {
+          cursor: pointer;
+          margin: 0.27rem 0;
+          font-size: 0.37rem;
+          font-weight: 600;
         }
       }
     }
