@@ -1,3 +1,14 @@
 @import './normalize.css';
 @import './common.scss';
 @import './iconfont/iconfont.css';
+
+
+// dialog 弹窗
+.el-dialog__headerbtn .el-dialog__close {
+  font-size: 0.43rem;
+}
+
+.el-dialog__headerbtn:focus .el-dialog__close,
+.el-dialog__headerbtn:hover .el-dialog__close {
+  color: $main-color;
+}

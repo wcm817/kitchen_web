@@ -3,7 +3,12 @@
     <block-title :title="$t('home.aboutUs')"></block-title>
     <el-row class="content">
       <el-col :xs="24" :sm="12">
-        <img class="left-img" src="@/assets/test.jpg" alt="" />
+        <img
+          style="max-width: 440px"
+          class="left-img"
+          src="@/assets/test.jpg"
+          alt=""
+        />
       </el-col>
       <el-col :xs="24" :sm="12" class="video-infos">
         <div class="title">
@@ -28,26 +33,25 @@
           </div>
         </div>
         <div class="video-section">
-          <el-carousel trigger="click">
-            <el-carousel-item
-              v-for="(item, I) in videoList"
-              :key="I"
-              class="carousel-item"
-            >
+          <div class="arrow">
+            <span class="el-icon-arrow-left" @click="hanldePre"></span>
+            <span class="el-icon-arrow-right" @click="hanldeNext"></span>
+          </div>
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
               <div
-                class="item-content"
-                v-for="(subItem, subI) in item"
-                :key="`${I}${subI}`"
-                @click="$router.push({ path: subItem.path })"
+                class="swiper-slide"
+                v-for="(item, index) in list"
+                :key="index"
               >
                 <div class="img-box">
-                  <img :src="subItem.imgSrc" alt="" />
+                  <img :src="item.imgSrc" />
                   <span></span>
                 </div>
-                <h4>{{ subItem.title }}</h4>
+                <h4>{{ item.title }}</h4>
               </div>
-            </el-carousel-item>
-          </el-carousel>
+            </div>
+          </div>
         </div>
       </el-col>
     </el-row>
@@ -55,6 +59,8 @@
 </template>
 <script>
 import BlockTitle from '@/components/blockTitle.vue';
+import Swiper from 'swiper';
+
 export default {
   components: {
     BlockTitle,
@@ -97,16 +103,43 @@ export default {
           path: '/',
           title: '777-Hot Sale Baking Equipment Pizza Electric Deck Oven'
         }
-      ]
+      ],
+      swiper: null
     };
   },
   computed: {
-    videoList () {
-      const res = [];
-      for (let i = 0; i < this.list.length; i += 2) {
-        res.push(this.list.slice(i, i + 2));
-      }
-      return res;
+  },
+  mounted () {
+    this.$nextTick(() => {
+      // swiper实例化
+      this.swiper = new Swiper(".about .swiper-container", {
+        loop: true,
+        keyboard: true,
+        autoHeight: true,
+        // 屏幕分隔
+        breakpoints: {
+          320: {  //当屏幕宽度大于等于320
+            slidesPerView: 1,
+            spaceBetween: 0
+          },
+          768: {  //当屏幕宽度大于等于768 
+            slidesPerView: 2,
+            spaceBetween: 16
+          },
+          1280: {  //当屏幕宽度大于等于1280
+            slidesPerView: 2,
+            spaceBetween: 16
+          }
+        },
+      });
+    });
+  },
+  methods: {
+    hanldePre () {
+      this.swiper.slidePrev();
+    },
+    hanldeNext () {
+      this.swiper.slideNext();
     }
   }
 };
@@ -114,6 +147,7 @@ export default {
 <style lang="scss" scoped>
 .about {
   padding: 0 0.267rem;
+
   .content {
     .left-img {
       width: 100%;
@@ -138,34 +172,64 @@ export default {
         max-height: 5.333rem;
         margin-bottom: 0.267rem;
         overflow: hidden;
+
         > div {
           text-indent: 2em;
         }
       }
-      /deep/.el-carousel__container {
-        height: 5.87rem;
-      }
 
-      .carousel-item {
-        display: flex;
-
-        .item-content {
-          width: 50%;
-          box-sizing: border-box;
-          padding: 0 0.213rem;
+      .video-section {
+        position: relative;
+        .arrow {
+          display: none;
+          width: calc(100% + 0.8rem);
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          z-index: 99;
+          justify-content: space-between;
+          transform: translate(-50%, -50%);
+          span {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 0.8rem;
+            height: 0.64rem;
+            cursor: pointer;
+            transition: 0.3s;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            &:first-child {
+              left: 0px;
+            }
+            &:last-child {
+              right: 0px;
+            }
+          }
+        }
+        &:hover {
+          .arrow {
+            display: flex;
+          }
+        }
+        .swiper-slide {
           .img-box {
+            width: 100%;
+            height: 4.16rem;
             position: relative;
+            overflow: hidden;
             img {
               width: 100%;
-              display: block;
+              transition: all 1s;
             }
             span {
-              display: flex;
-              justify-content: center;
-              align-items: center;
               position: absolute;
               left: 50%;
               top: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
               transform: translate(-50%, -50%);
               width: 1.07rem;
               height: 1.07rem;
@@ -180,11 +244,24 @@ export default {
               }
             }
           }
+
           h4 {
-            cursor: pointer;
-            margin: 0.27rem 0;
-            font-size: 0.37rem;
-            font-weight: 600;
+            padding: 0.27rem 0;
+            height: 1.6rem;
+            @include moreEllipsis(2);
+          }
+          &:hover {
+            @media screen and (min-width: 751px) {
+              .img-box {
+                img {
+                  transform: scale(1.2);
+                }
+              }
+            }
+
+            h4 {
+              color: $main-color;
+            }
           }
         }
       }
