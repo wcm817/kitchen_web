@@ -220,6 +220,7 @@ export default {
           .item {
             padding-top: 0.16rem;
             font-size: 0.32rem;
+            @include ellipsis;
             a {
               color: $main-color;
             }
