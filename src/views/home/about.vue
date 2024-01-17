@@ -60,7 +60,6 @@
 <script>
 import BlockTitle from '@/components/blockTitle.vue';
 import Swiper from 'swiper';
-import { mapState } from 'vuex';
 
 export default {
   components: {
@@ -109,12 +108,11 @@ export default {
     };
   },
   computed: {
-    ...mapState(['isMobile']),
   },
   mounted () {
     this.$nextTick(() => {
       // swiper实例化
-      this.swiper = new Swiper(".swiper-container", {
+      this.swiper = new Swiper(".about .swiper-container", {
         loop: true,
         keyboard: true,
         autoHeight: true,
@@ -133,13 +131,8 @@ export default {
             spaceBetween: 16
           }
         },
-
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
       });
-    })
+    });
   },
   methods: {
     hanldePre () {
@@ -197,6 +190,7 @@ export default {
           justify-content: space-between;
           transform: translate(-50%, -50%);
           span {
+            position: absolute;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -206,6 +200,12 @@ export default {
             transition: 0.3s;
             background-color: #fff;
             border: 1px solid #ddd;
+            &:first-child {
+              left: 0px;
+            }
+            &:last-child {
+              right: 0px;
+            }
           }
         }
         &:hover {

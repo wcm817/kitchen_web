@@ -6,6 +6,8 @@
     <product></product>
     <!-- 关于我们视频 -->
     <about></about>
+    <!-- 证书 -->
+    <authorize></authorize>
   </div>
 </template>
 
@@ -13,12 +15,14 @@
 import Banner from './home/banner.vue';
 import Product from './home/product.vue';
 import About from './home/about.vue';
+import Authorize from './home/authorize.vue';
 export default {
   name: 'Home',
   components: {
     Banner,
     Product,
-    About
+    About,
+    Authorize
   },
   data () {
     return {
