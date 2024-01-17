@@ -13,6 +13,16 @@ $pd-l: .64rem;
   white-space: nowrap;
 }
 
+@mixin moreEllipsis($line: 2) {
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* 这里是超出几行省略 */
+  -webkit-line-clamp: $line;
+}
+
 @mixin scrollBar($bgColor: #D8D8D8, $width: 10px) {
   &::-webkit-scrollbar {
     width: $width;
