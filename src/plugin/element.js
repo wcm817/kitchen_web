@@ -11,7 +11,9 @@ import {
   Carousel,
   CarouselItem,
   Row,
-  Col
+  Col,
+  Form,
+  FormItem
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import 'element-ui/lib/theme-chalk/display.css';
@@ -27,3 +29,5 @@ Vue.use(Carousel);
 Vue.use(CarouselItem);
 Vue.use(Row);
 Vue.use(Col);
+Vue.use(Form);
+Vue.use(FormItem);

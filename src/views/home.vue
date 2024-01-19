@@ -8,6 +8,10 @@
     <about></about>
     <!-- 证书 -->
     <authorize></authorize>
+    <!-- 留言 -->
+    <comment></comment>
+    <!-- 联系我们 -->
+    <contact></contact>
   </div>
 </template>
 
@@ -16,13 +20,17 @@ import Banner from './home/banner.vue';
 import Product from './home/product.vue';
 import About from './home/about.vue';
 import Authorize from './home/authorize.vue';
+import Comment from './home/comment.vue';
+import Contact from './home/contact.vue';
 export default {
   name: 'Home',
   components: {
     Banner,
     Product,
     About,
-    Authorize
+    Authorize,
+    Comment,
+    Contact
   },
   data () {
     return {
