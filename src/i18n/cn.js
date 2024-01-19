@@ -1,4 +1,5 @@
 export default {
+  common: {},
   home: {
     home: '首页',
     products: '产品',

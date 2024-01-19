@@ -64,6 +64,9 @@ export default {
         loop: true,
         keyboard: true,
         autoHeight: true,
+        autoplay: {
+          delay: 6000
+        },
         // 屏幕分隔
         breakpoints: {
           320: {  //当屏幕宽度大于等于320
@@ -111,10 +114,10 @@ export default {
   background-color: #eee;
   position: relative;
   .arrow {
-    width: calc(100% + 1rem);
     @media screen and (max-width: 750px) {
-      width: 100%;
+      display: none;
     }
+    width: calc(100% + 1rem);
     position: absolute;
     left: 50%;
     top: 50%;

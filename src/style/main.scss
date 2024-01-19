@@ -2,6 +2,16 @@
 @import './common.scss';
 @import './iconfont/iconfont.css';
 
+// button按钮
+button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  height: .85rem;
+  line-height: .85rem;
+  border-radius: 4px;
+}
+
 
 // dialog 弹窗
 .el-dialog__headerbtn .el-dialog__close {
@@ -11,4 +21,23 @@
 .el-dialog__headerbtn:focus .el-dialog__close,
 .el-dialog__headerbtn:hover .el-dialog__close {
   color: $main-color;
+}
+
+// 输入框
+.el-input__inner {
+  height: .85rem;
+  line-height: .85rem;
+}
+
+.el-input.is-active .el-input__inner,
+.el-input__inner:focus {
+  border-color: $main-color;
+}
+
+.el-form-item {
+  margin-bottom: $pd-m;
+}
+
+.el-form-item__content {
+  line-height: .85rem;
 }

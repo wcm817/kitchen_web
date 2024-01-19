@@ -116,6 +116,9 @@ export default {
         loop: true,
         keyboard: true,
         autoHeight: true,
+        autoplay: {
+          delay: 3000
+        },
         // 屏幕分隔
         breakpoints: {
           320: {  //当屏幕宽度大于等于320
@@ -211,6 +214,9 @@ export default {
         &:hover {
           .arrow {
             display: flex;
+            @media screen and (max-width: 750px) {
+              display: none;
+            }
           }
         }
         .swiper-slide {

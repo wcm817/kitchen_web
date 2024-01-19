@@ -6,6 +6,41 @@
   "description": "厨具网",
   "glyphs": [
     {
+      "icon_id": "29935",
+      "name": "location_fill",
+      "font_class": "locationfill",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "399834",
+      "name": "email",
+      "font_class": "email",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "13074988",
+      "name": "phone",
+      "font_class": "phone1",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "791228",
+      "name": "逗号",
+      "font_class": "douhao",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "791229",
+      "name": "逗号2",
+      "font_class": "douhao-copy",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
       "icon_id": "848747",
       "name": "more",
       "font_class": "more",
