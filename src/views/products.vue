@@ -1,5 +1,5 @@
 <template>
-  <div>产品页</div>
+  <div class="products">产品</div>
 </template>
 
 <script>
@@ -16,4 +16,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.products {
+}
 </style>

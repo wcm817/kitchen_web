@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <h1>Kitchen</h1>
+    <h1>Makita</h1>
 
     <div class="nav" v-if="!isMobile">
       <ul class="menu">
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import MobileDrawer from './header/mobileDrawer.vue';
+import MobileDrawer from './home/header/mobileDrawer.vue';
 import { mapState, mapMutations } from 'vuex';
 import { isMediaMobile } from '@/utils/mobile.js';
 export default {
@@ -78,6 +78,11 @@ export default {
           routeName: 'home',
           name: this.$t('home.home'),
           path: '/'
+        },
+        {
+          routeName: 'about',
+          name: this.$t('home.about'),
+          path: '/about'
         },
         {
           routeName: 'products',
