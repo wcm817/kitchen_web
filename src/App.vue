@@ -9,7 +9,7 @@
 
 <script>
 import { initRootFontSize } from './utils/rem.js';
-import DcHeader from './views/home/header.vue';
+import DcHeader from './views/header.vue';
 export default {
   name: 'App',
   components: {

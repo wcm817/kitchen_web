@@ -2,6 +2,7 @@ export default {
   common: {},
   home: {
     home: '首页',
+    about: '关于我们',
     products: '产品',
     videos: '视频',
     news: '新闻',

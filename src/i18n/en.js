@@ -1,6 +1,7 @@
 export default {
   home: {
     home: 'Home',
+    about: 'About Us',
     products: 'Products',
     videos: 'Videos',
     news: 'News',
