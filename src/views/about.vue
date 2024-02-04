@@ -46,7 +46,26 @@
         </el-col>
       </el-row>
     </div>
-    <div class="challenge"></div>
+    <div class="challenge">
+      <el-row class="w">
+        <el-col :xs="24" :sm="14">
+          <div class="title">
+            What's your biggest challenge? We're here to help.
+          </div>
+          <div class="text">
+            We understand the design We understand the design We understand the
+            design We understand the design We understand the design We
+            understand the design We understand the design We understand the
+            design We understand the design We understand the design We
+            understand the design We understand the design We understand the
+            design
+          </div>
+          <button class="contact-btn" @click="handleGotoContact">
+            CONTACT US
+          </button>
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
@@ -59,7 +78,13 @@ export default {
   },
   created () { },
   mounted () { },
-  methods: {}
+  methods: {
+    handleGotoContact () {
+      this.$router.push({
+        path: '/contact'
+      })
+    }
+  }
 }
 </script>
 
@@ -78,6 +103,9 @@ export default {
   }
   .detail {
     padding: 1.6rem 0;
+    @media screen and (max-width: 750px) {
+      padding: 1.6rem 0.27rem;
+    }
   }
   .purpose {
     .purpose-title {
@@ -101,6 +129,30 @@ export default {
           font-weight: 600;
         }
       }
+    }
+  }
+  .challenge {
+    background-color: $main-color;
+    padding: 1.07rem 0;
+    @media screen and (max-width: 750px) {
+      padding: 1.07rem 0.27rem;
+    }
+    .title {
+      font-size: 1.01rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    .text {
+      padding: 0.53rem 0;
+      color: #eee;
+    }
+    .contact-btn {
+      width: 3.2rem;
+      height: 1.01rem;
+      line-height: 1.01rem;
+      background-color: #fff;
+      font-size: 0.37rem;
+      text-align: center;
     }
   }
 }

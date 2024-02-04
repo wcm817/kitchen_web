@@ -13,8 +13,9 @@
         v-for="item in navList"
         :key="item.routeName"
         :class="currentRouteName === item.routeName ? 'active' : ''"
+        @click="handleChangeMenu(item)"
       >
-        <router-link :to="item.path">{{ item.name }}</router-link>
+        {{ item.name }}
       </li>
       <li class="li-lang">
         <span class="lang-c">{{ $t('home.changeLang') }}</span>
@@ -88,6 +89,12 @@ export default {
   mounted () {
   },
   methods: {
+    handleChangeMenu (item) {
+      this.$router.push({
+        path: item.path
+      });
+      this.handleClose();
+    },
     handleClose () {
       this.$emit('handleClose');
     },
@@ -138,19 +145,15 @@ export default {
   li {
     height: 1.067rem;
     line-height: 1.067rem;
-
-    a {
-      display: block;
-      height: 100%;
-      padding: 0 0.43rem;
-      color: #fff;
-    }
+    color: #fff;
+    padding: 0 0.43rem;
     &.active {
       background-color: rgba(255, 255, 255, 0.2);
     }
     &.li-lang {
       display: flex;
       align-items: center;
+      padding: 0;
       .lang-c {
         margin-left: 0.43rem;
         color: #fff;
