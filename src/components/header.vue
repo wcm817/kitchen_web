@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import MobileDrawer from './home/header/mobileDrawer.vue';
+import MobileDrawer from './header/mobileDrawer.vue';
 import { mapState, mapMutations } from 'vuex';
 import { isMediaMobile } from '@/utils/mobile.js';
 export default {

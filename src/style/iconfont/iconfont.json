@@ -6,6 +6,27 @@
   "description": "厨具网",
   "glyphs": [
     {
+      "icon_id": "792378",
+      "name": "in",
+      "font_class": "in",
+      "unicode": "e6c1",
+      "unicode_decimal": 59073
+    },
+    {
+      "icon_id": "3876489",
+      "name": "facebook",
+      "font_class": "facebook",
+      "unicode": "e66e",
+      "unicode_decimal": 58990
+    },
+    {
+      "icon_id": "34710747",
+      "name": "推特",
+      "font_class": "tuite",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
       "icon_id": "29935",
       "name": "location_fill",
       "font_class": "locationfill",
