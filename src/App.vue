@@ -4,16 +4,19 @@
     <div class="app-content">
       <router-view />
     </div>
+    <dc-footer></dc-footer>
   </div>
 </template>
 
 <script>
 import { initRootFontSize } from './utils/rem.js';
-import DcHeader from './views/header.vue';
+import DcHeader from '@/components/header.vue';
+import DcFooter from '@/components/footer.vue';
 export default {
   name: 'App',
   components: {
-    DcHeader
+    DcHeader,
+    DcFooter
   },
   data () {
     return {}

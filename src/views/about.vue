@@ -46,7 +46,7 @@
         </el-col>
       </el-row>
     </div>
-    <div class="challenge">
+    <!-- <div class="challenge">
       <el-row class="w">
         <el-col :xs="24" :sm="14">
           <div class="title">
@@ -65,7 +65,7 @@
           </button>
         </el-col>
       </el-row>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -131,29 +131,30 @@ export default {
       }
     }
   }
-  .challenge {
-    background-color: $main-color;
-    padding: 1.07rem 0;
-    @media screen and (max-width: 750px) {
-      padding: 1.07rem 0.27rem;
-    }
-    .title {
-      font-size: 1.01rem;
-      font-weight: 600;
-      color: #fff;
-    }
-    .text {
-      padding: 0.53rem 0;
-      color: #eee;
-    }
-    .contact-btn {
-      width: 3.2rem;
-      height: 1.01rem;
-      line-height: 1.01rem;
-      background-color: #fff;
-      font-size: 0.37rem;
-      text-align: center;
-    }
-  }
+  // .challenge {
+  //   background-color: $main-color;
+  //   padding: 1.07rem 0;
+  //   @media screen and (max-width: 750px) {
+  //     padding: 1.07rem 0.27rem;
+  //   }
+  //   .title {
+  //     font-size: 1.01rem;
+  //     font-weight: 600;
+  //     color: #fff;
+  //   }
+  //   .text {
+  //     padding: 0.53rem 0;
+  //     color: #eee;
+  //   }
+  //   .contact-btn {
+  //     width: 3.2rem;
+  //     height: 1.01rem;
+  //     line-height: 1.01rem;
+  //     background-color: #fff;
+  //     font-size: 0.37rem;
+  //     text-align: center;
+  //     color: #333;
+  //   }
+  // }
 }
 </style>
