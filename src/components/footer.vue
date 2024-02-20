@@ -16,9 +16,15 @@
           the design We understand the design We understand the design
         </div>
         <div class="share">
-          <a href="/" class="iconfont icon-in in"></a>
-          <a href="/" class="iconfont icon-facebook facebook"></a>
-          <a href="/" class="iconfont icon-tuite twitter"></a>
+          <a class="iconfont icon-in in"></a>
+          <a
+            :href="`https://www.facebook.com/sharer/sharer.php?u={{链接，分享爬取的内容就是这个从这个链接,该链接不会显示在分享卡片上}}`"
+            class="iconfont icon-facebook facebook"
+          ></a>
+          <a
+            :href="`http://twitter.com/home/?text={{自定义内容-显示在最上面的标题。}}via={{twitter账号-会显示@xxx}}`"
+            class="iconfont icon-tuite twitter"
+          ></a>
         </div>
       </el-col>
       <el-col :xs="24" :sm="6" class="two">
@@ -113,9 +119,9 @@ export default {
     }
   }
   .two {
+    margin-top: 1.07rem;
     dl {
       color: #fff;
-      margin-left: 0.53rem;
       a {
         color: #fff;
       }
