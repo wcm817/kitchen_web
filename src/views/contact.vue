@@ -17,43 +17,38 @@
       <el-col :xs="24" :sm="12">
         <div class="block">
           <div class="title">Enquiry / Opinions</div>
-          <el-form>
-            <el-form-item>
-              <el-input
-                v-model="userData.firstName"
-                placeholder="名称"
-              ></el-input>
+          <el-form :rules="rules" :model="userData" ref="form">
+            <el-form-item prop="name">
+              <el-input v-model="userData.name" placeholder="名称"></el-input>
             </el-form-item>
-            <el-form-item>
-              <el-input v-model="userData.lastName" placeholder="姓"></el-input>
-            </el-form-item>
-            <el-form-item>
+            <el-form-item class="phone-item" prop="phone">
+              <el-select v-model="userData.phonecode">
+                <el-option label="+86" value="86"></el-option>
+              </el-select>
               <el-input
                 v-model="userData.phone"
                 placeholder="电话号码"
               ></el-input>
             </el-form-item>
-            <el-form-item>
-              <el-input
-                v-model="userData.zipCode"
-                placeholder="邮政编码"
-              ></el-input>
+            <el-form-item prop="email">
+              <el-input v-model="userData.email" placeholder="邮箱"></el-input>
             </el-form-item>
-            <el-form-item>
+            <el-form-item prop="business">
               <el-input
-                v-model="userData.bussinessName"
+                v-model="userData.business"
                 placeholder="公司名称"
               ></el-input>
             </el-form-item>
-            <el-form-item>
+            <el-form-item prop="message">
               <el-input
                 type="textarea"
                 :rows="3"
-                v-model="userData.helpInfo"
+                v-model="userData.message"
                 placeholder="请输入您的咨询信息"
               ></el-input>
             </el-form-item>
           </el-form>
+          <button class="btn" @click="handleSubmit">提交</button>
         </div>
       </el-col>
     </el-row>
@@ -62,6 +57,7 @@
 </template>
 
 <script>
+import { post } from '@/api/request.js';
 export default {
   name: 'Contact',
   components: {
@@ -69,13 +65,24 @@ export default {
   data () {
     return {
       userData: {
-        firstName: '',
-        lastName: '',
+        name: '',
+        phonecode: '86',
         phone: '',
         email: '',
-        zipCode: '',
-        bussinessName: '',
-        delpInfo: ''
+        business: '',
+        message: ''
+      },
+      rules: {
+        name: [
+          { required: true, message: '请输入您的名称', trigger: 'blur' },
+        ],
+        phone: [
+          { required: true, message: '请输入联系方式', trigger: 'blur' }
+        ],
+        email: [
+          { required: true, message: '请输入邮箱地址', trigger: 'blur' },
+          { type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] }
+        ]
       }
     }
   },
@@ -99,7 +106,27 @@ export default {
   },
   created () { },
   mounted () { },
-  methods: {}
+  methods: {
+    handleSubmit () {
+      this.$refs.form.validate(async (valid) => {
+        if (valid) {
+          const res = await post({
+            path: 'addComment',
+            params: this.userData
+          });
+          if (res.code === 0) {
+            this.$message({
+              type: 'success',
+              message: '留言成功'
+            });
+            this.$refs.form.resetFields();
+          }
+        } else {
+          return false;
+        }
+      });
+    }
+  }
 }
 </script>
 
@@ -162,6 +189,20 @@ export default {
           width: 3.73rem;
           flex-shrink: 0;
         }
+      }
+      .phone-item {
+        ::v-deep .el-form-item__content {
+          display: flex;
+          .el-select {
+            width: 100px;
+          }
+        }
+      }
+      .btn {
+        cursor: pointer;
+        width: 100px;
+        background-color: $main-color;
+        color: #fff;
       }
     }
   }

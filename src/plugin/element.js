@@ -13,7 +13,9 @@ import {
   Row,
   Col,
   Form,
-  FormItem
+  FormItem,
+  MessageBox,
+  Message
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import 'element-ui/lib/theme-chalk/display.css';
@@ -31,3 +33,6 @@ Vue.use(Row);
 Vue.use(Col);
 Vue.use(Form);
 Vue.use(FormItem);
+
+Vue.prototype.$alert = MessageBox.alert;
+Vue.prototype.$message = Message;

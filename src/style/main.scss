@@ -24,7 +24,8 @@ button {
 }
 
 // 输入框
-.el-input__inner {
+.el-input__inner,
+.el-input__icon {
   height: .96rem;
   line-height: .96rem;
 }
@@ -34,9 +35,9 @@ button {
   border-color: $main-color;
 }
 
-.el-form-item {
-  margin-bottom: $pd-m;
-}
+// .el-form-item {
+//   // margin-bottom: $pd-m;
+// }
 
 .el-form-item__content {
   line-height: .96rem;
